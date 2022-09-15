@@ -49,7 +49,6 @@ class jenisproduk(models.Model):
         elif (self.name == 'buahimp'):
             self.kode_rak = '2 kiri belakang'
         
-    
     # hitung isi fields
     @api.depends('produk_ids')
     def _compute_jml_produk(self):
@@ -58,13 +57,3 @@ class jenisproduk(models.Model):
             b = len(a)
             rec.jml_produk = b
             rec.daftar = a
-
-    
-
-    
-
-    
-
-
-    
-    

@@ -63,7 +63,6 @@ class transaksi(models.Model):
                 .mapped('subtotal'))
             record.total_bayar = a
     
-
     # Metode UNLINK untuk DELETE
     def unlink(self):
         for rec in self:
@@ -76,19 +75,6 @@ class transaksi(models.Model):
                     data.produk_id.stok = data.produk_id.stok + data.qty
         record = super(transaksi,self).unlink()
         return record
-
-        # else:
-        #     # action DELETE STOK
-        #     if self.detailjual_ids:
-        #         a = []
-        #         for rec in self:
-        #             a = self.env['arishop.detailjual']\
-        #             .search([('transaksi_id','=',rec.id)])
-        #             print(a)
-        #         for objek in a:
-        #             print(str(objek.produk_id.name)+' '+str(objek.qty))
-        #             objek.produk_id.stok += objek.qty
-        #     record = super(transaksi,self).unlink()
 
     # untuk EDIT STOK ketika sudah berkurang/bertambah
     def write(self, vals):
@@ -118,7 +104,6 @@ class transaksi(models.Model):
     _sql_constraints = [
         ('nota_unique','UNIQUE (name)','Nomor Nota Tidak Boleh Sama !!!')
         ]
-
 
 class detailjual(models.Model):
     _name = 'arishop.detailjual'
@@ -170,9 +155,3 @@ class detailjual(models.Model):
             elif (rec.produk_id.stok < rec.qty):
                 raise ValidationError("Stok {} ga cukup, hanya ada {}"\
                 .format(rec.produk_id.name,rec.produk_id.stok))
-
-    
-    
-    
-    
-    

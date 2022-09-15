@@ -9,7 +9,3 @@ class respartner(models.Model):
                                  required=False,
                                  domain="[('is_konsumen','=', True)]")
     
-    
-    
-
-

@@ -18,6 +18,4 @@ class produk(models.Model):
     # view simbol RP
     currency_id = fields.Many2one('res.currency', string='Mata Uang',
         help="Forces all moves for this account to have this account currency.", required=True)
-    
-    
-    
+        

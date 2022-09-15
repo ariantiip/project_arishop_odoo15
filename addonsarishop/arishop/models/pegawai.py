@@ -30,5 +30,3 @@ class supervisor(models.Model):
     _description = 'New Description'
 
     id_svisor = fields.Char(string='ID Supervisor')
-
-    

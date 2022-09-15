@@ -12,5 +12,3 @@ class supplier(models.Model):
     produk_id = fields.Many2many(comodel_name='arishop.produk', 
                                  string='Produk')
     
-    
-    
